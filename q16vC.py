@@ -1,4 +1,3 @@
-
 class Skill:
     def __init__(self, skill_name, name_variations, weight):
         self.skill_name = skill_name
@@ -104,14 +103,19 @@ def main_program():
     print(instructions)
     #IF USER WANTS TO PROCEED#
     if next(next_continue):
-        goodbye = f"\n---GOODBYE---\n\nThank you for choosing to use the ACME Code Skill Test program, {user_name}!\nIt is a tremendously helpful tool that benefits both the applicant and recruitment agent with a system that evaluates a candidate's role suitability based on their experience with the particular skills a role needs as outlined by the job description's criteria.\n\n---END PROGRAM---\n"
+        goodbye = f"\n---GOODBYE---\n\nThank you for choosing to use the ACME Code Skill Test program, {user_name}!\nGood luck with your application.\n\n---END PROGRAM---\n"
+        #CALCULATE RESULTS#
         score = check_skills()
         percentage = get_percentage(score, max_score)
         results = print_results(score, max_score, user_name)
+        #IF ANY CRITERIA NOT MET#
         if percentage < 100:
+            #ASK IF USER WANTS TO SEE HOW TO IMPROVE#
             see_feedback = input("Would you like to see how you can improve your score? ")
+            #IF NO, EXIT#
             if see_feedback in NO_VARIATIONS:
                 print(goodbye)
+            #IF YES, SHOW REMAINING SKILLS TO LEARN#
             elif see_feedback in YES_VARIATIONS:
                 feedback_message = give_feedback(SKILL_LIST)
                 if next(next_continue):
@@ -120,10 +124,3 @@ def main_program():
         
 
 main_program()
-
-
-
-
-
-
-
