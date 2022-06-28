@@ -47,14 +47,16 @@ def calculate_max_score(list_of_skills):
 
 
 def print_results(score, max_score):
-    # max_score = calculate_max_score(SKILL_LIST)
     # score = check_input()
     results = f"You scored {score} out of {max_score}"
     print(results)
 
+def main_program():
+    max_score = calculate_max_score(SKILL_LIST)
+    score = check_input()
+    results = print_results(score, max_score)
 
-print_results(2, 255)
-
+main_program()
 
 
 
