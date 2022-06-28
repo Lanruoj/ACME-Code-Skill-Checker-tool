@@ -1,0 +1,17 @@
+
+
+
+Python = 1
+Ruby = 2
+Bash = 4
+Git = 8
+HTML = 16
+TDD = 32
+CSS = 64
+JavaScript = 128
+
+skills = input("What coding languages are you competent in?")
+knows_python = skills=="Python
+knows_javascript = skills=="JavaScript" or "javascript" or "Javascript" or "JS"
+
+if skills=="JavaScript"
