@@ -1,4 +1,4 @@
-# From question 15 of T1A1 workbook assessment
+# From question 16 of T1A1 workbook assessment
 
 ACME Corporation are hiring a new junior developer, as part of their hiring criteria they've created a "coding skill score" based on the specific competencies they require for this role; the more important the skill is for ACME corp, the more points it contributes to the "coding skill score"  
 The skills are weighted as follows:
