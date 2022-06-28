@@ -10,14 +10,14 @@
 #         "JavaScript":128
 #         }
 
-max_score = 255
+# max_score = 255
 # user_skills = []
-score = 0
+# score = 0
 # user_input = ""
 
-welcome = "\n---ACME CODING SKILL TEST---\nWelcome to ACME Corporation's skill assessment tool. This program will evaluate your potential suitability for a developer role\nbased on which skills you have.\n"
-instructions = "\n---INSTRUCTIONS---\n\n1. Enter skill\n2. Press Enter key\n3. Repeat for all of your skills\n4. Once completed, enter 'DONE'"
-print(f"{welcome}{instructions}")
+# welcome = "\n---ACME CODING SKILL TEST---\nWelcome to ACME Corporation's skill assessment tool. This program will evaluate your potential suitability for a developer role\nbased on which skills you have.\n"
+# instructions = "\n---INSTRUCTIONS---\n\n1. Enter skill\n2. Press Enter key\n3. Repeat for all of your skills\n4. Once completed, enter 'DONE'"
+# print(f"{welcome}{instructions}")
 
 def goodbye():
         print("\nThank you for using the ACME Coding Skill Test.\n")
