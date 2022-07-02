@@ -28,7 +28,8 @@ def calculate_max_score(list_of_skills):
 def next(prompt):
     answer = ""
     while True:
-        answer = input(f"\n{prompt}  ")
+        answer = input(f"\n{prompt}\n(Answer): ")
+        print("")
         if answer in (YES_VARIATIONS):
             return True
 
@@ -37,14 +38,13 @@ def get_input(index):
     return user_input
 
 def check_skills():
-    done = "X"
     index = 1
     score = 0
     remaining_skills = []
     while True:
         input = get_input(index)
         index += 1
-        if input == done:
+        if (input == "X") or (input == "x"):
             break
         for i in SKILL_LIST:
             if input in i.name_variations:
@@ -69,7 +69,7 @@ def evaluate_results(name, percentage):
     if percentage <= 33:
         print(f"Sorry {name}, {message} low.")
     elif percentage > 33 and percentage <=66:
-        print(f"Good job {name}, {message} average.")
+        print(f"Good job {name}, {message} moderate.")
     elif percentage > 66 and percentage <= 90:
         print(f"Well done {name}, {message} high.")
     else:
@@ -83,8 +83,8 @@ def give_feedback(unmet_criteria):
             print(f"\n--{i.skill_name}--\nIf you learn {i.skill_name} you will improve your score by {i.weight} point")
         else:
             print(f"\n--{i.skill_name}--\nIf you learn {i.skill_name} you will improve your score by {i.weight} points")
-    print("\n")
-    
+
+#----MAIN PROGRAM----#
 
 def main_program():
     #CALCULATE MAX SCORE OF TEST#
@@ -96,7 +96,7 @@ def main_program():
     #PRINT WELCOME MESSAGE#
     print(intro)
     #TAKE NAME#
-    user_name = input("Please enter your name:  ")
+    user_name = input("Please enter your first name: ")
     #WELCOME THEM WITH THEIR NAME#
     welcome = "\nWelcome {user_name}!"
     #PRINT INSTRUCTIONS#
@@ -104,6 +104,7 @@ def main_program():
     #IF USER WANTS TO PROCEED#
     if next(next_continue):
         goodbye = f"\n---GOODBYE---\n\nThank you for choosing to use the ACME Code Skill Test program, {user_name}!\nGood luck with your application.\n\n---END PROGRAM---\n"
+        print("---LIST OF SKILLS---\n")
         #CALCULATE RESULTS#
         score = check_skills()
         percentage = get_percentage(score, max_score)
@@ -111,7 +112,7 @@ def main_program():
         #IF ANY CRITERIA NOT MET#
         if percentage < 100:
             #ASK IF USER WANTS TO SEE HOW TO IMPROVE#
-            see_feedback = input("Would you like to see how you can improve your score? ")
+            see_feedback = input("Would you like to see how you can improve your score? [Answer]: ")
             #IF NO, EXIT#
             if see_feedback in NO_VARIATIONS:
                 print(goodbye)
@@ -120,7 +121,6 @@ def main_program():
                 feedback_message = give_feedback(SKILL_LIST)
                 if next(next_continue):
                     print(goodbye)
-            
-        
-
+        else:
+            print(goodbye)
 main_program()
